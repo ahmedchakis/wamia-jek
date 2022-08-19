@@ -173,6 +173,7 @@ class Mobikul(models.Model):
 
     @api.model
     def _validate(self, api_key, context=None):
+        api_key='hfodhgihdffpsjdpghs64fgdfjg'
         context = context or {}
         response = {'success': False, 'responseCode': 0, 'message': _('Unknown Error !!!')}
         if not api_key:
