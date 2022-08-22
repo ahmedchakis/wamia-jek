@@ -60,7 +60,7 @@ def _getProductData(p_data, base_url, currency_symbol, currency_position, lang_o
 
             # 'priceUnit': _displayWithCurrency(lang_obj, prod['lst_price'] or 0, currency_symbol, currency_position),
             # 'priceReduce': prod['price'] < prod['lst_price'] and _displayWithCurrency(lang_obj, prod['price'] or 0, currency_symbol, currency_position) or "",
-            'priceUnit': _displayWithCurrency(lang_obj, without_discount_policy and prod['list_price'] or prod['price'] or 0, currency_symbol, currency_position),
+            'priceUnit': _displayWithCurrency(lang_obj, without_discount_policy and prod['lzst_price'] or prod['price'] or 0, currency_symbol, currency_position),
             'priceReduce':without_discount_policy and _displayWithCurrency(lang_obj, prod['price'] or 0, currency_symbol, currency_position) or "",
 
             'productId': prod['product_variant_id'] and prod['product_variant_id'][0] or '',
@@ -72,7 +72,7 @@ def _getProductData(p_data, base_url, currency_symbol, currency_position, lang_o
 
 
 def _get_product_fields():
-    return ['name', 'product_variant_id', 'product_variant_count', 'price', 'description_sale', 'list_price', 'website_price', 'write_date']
+    return ['name', 'product_variant_id', 'product_variant_count', 'price', 'description_sale', 'lst_price', 'website_price', 'write_date']
 
 
 def _get_product_domain():
