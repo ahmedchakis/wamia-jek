@@ -60,8 +60,9 @@ def _getProductData(p_data, base_url, currency_symbol, currency_position, lang_o
 
             # 'priceUnit': _displayWithCurrency(lang_obj, prod['list_price'] or 0, currency_symbol, currency_position),
             # 'priceReduce': prod['price'] < prod['list_price'] and _displayWithCurrency(lang_obj, prod['price'] or 0, currency_symbol, currency_position) or "",
-            'priceUnit': _displayWithCurrency(lang_obj, without_discount_policy and prod['lzst_price'] or prod['price'] or 0, currency_symbol, currency_position),
-            'priceReduce':without_discount_policy and _displayWithCurrency(lang_obj, prod['price'] or 0, currency_symbol, currency_position) or "",
+            'priceUnit': _displayWithCurrency(lang_obj, without_discount_policy and prod['list_price'] or prod['price'] or 0, currency_symbol, currency_position),
+            #'priceReduce':without_discount_policy and _displayWithCurrency(lang_obj, prod['price'] or 0, currency_symbol, currency_position) or "",
+            'priceReduce':without_discount_policy and _displayWithCurrency(lang_obj, 0, currency_symbol, currency_position) or "",
 
             'productId': prod['product_variant_id'] and prod['product_variant_id'][0] or '',
             'productCount': prod['product_variant_count'] or 0,
