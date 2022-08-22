@@ -719,8 +719,8 @@ class WebServices(Controller):
 					result['attributes'].append(temp)
 				if Template.product_variant_count > 1:
 					result.update({
-					'priceUnit'		:_displayWithCurrency(local.get('lang_obj'),Template.product_variant_id.lst_price, local.get('currencySymbol'), local.get('currencyPosition')),
-					'priceReduce'	:Template.product_variant_id.price < Template.product_variant_id.lst_price and _displayWithCurrency(local.get('lang_obj'),Template.product_variant_id.price, local.get('currencySymbol'), local.get('currencyPosition')) or "",
+					'priceUnit'		:_displayWithCurrency(local.get('lang_obj'),Template.product_variant_id.list_price, local.get('currencySymbol'), local.get('currencyPosition')),
+					'priceReduce'	:Template.product_variant_id.price < Template.product_variant_id.list_price and _displayWithCurrency(local.get('lang_obj'),Template.product_variant_id.price, local.get('currencySymbol'), local.get('currencyPosition')) or "",
 					'productId'		:Template.product_variant_id.id,
 					'productCount'	:Template.product_variant_count,
 					'description'	:Template.product_variant_id.description_sale or "",
@@ -741,8 +741,8 @@ class WebServices(Controller):
 							"productId":var.id,
 							'images':[_get_image_url(self.base_url, 'product.product', var.id,'image', var.write_date)] + prd_images,
 							'absoluteUrl'   :'%sshop/product/%s'%(self.base_url,slug(var)),
-							'priceReduce':var.price < var.lst_price and _displayWithCurrency(local.get('lang_obj'),var.price, local.get('currencySymbol'), local.get('currencyPosition')) or "",
-							'priceUnit':_displayWithCurrency(local.get('lang_obj'),var.lst_price, local.get('currencySymbol'), local.get('currencyPosition')),
+							'priceReduce':var.price < var.list_price and _displayWithCurrency(local.get('lang_obj'),var.price, local.get('currencySymbol'), local.get('currencyPosition')) or "",
+							'priceUnit':_displayWithCurrency(local.get('lang_obj'),var.list_price, local.get('currencySymbol'), local.get('currencyPosition')),
 							"combinations":[],
 							"addedToWishlist":var.id in wishlist,
 							}
@@ -754,8 +754,8 @@ class WebServices(Controller):
 						result['variants'].append(temp)
 				else:
 					result.update({
-					'priceUnit'		:_displayWithCurrency(local.get('lang_obj'),Template.lst_price, local.get('currencySymbol'), local.get('currencyPosition')),
-					'priceReduce'	:Template.price < Template.lst_price and _displayWithCurrency(local.get('lang_obj'),Template.price, local.get('currencySymbol'), local.get('currencyPosition')) or "",
+					'priceUnit'		:_displayWithCurrency(local.get('lang_obj'),Template.list_price, local.get('currencySymbol'), local.get('currencyPosition')),
+					'priceReduce'	:Template.price < Template.list_price and _displayWithCurrency(local.get('lang_obj'),Template.price, local.get('currencySymbol'), local.get('currencyPosition')) or "",
 					'productId'		:Template.product_variant_id and Template.product_variant_id.id or '',
 					'productCount'	:Template.product_variant_count,
 					'description'	:Template.description_sale or "",
@@ -1359,8 +1359,8 @@ class WebServices(Controller):
 							"name": wishlist.product_id.display_name,
 							"thumbNail": _get_image_url(self.base_url, 'product.product', wishlist.product_id.id, 'image', wishlist.product_id.write_date),
 							# "priceReduce":Product.price_reduce < Product.price_unit and _displayWithCurrency(local.get('langobj'),Product.price_reduce, local.get('currencySymbol'), local.get('currencyPosition')) or "",
-							"priceReduce":wishlist.product_id.price < wishlist.product_id.lst_price and _displayWithCurrency(local.get('lang_obj'),wishlist.product_id.price, local.get('currencySymbol'), local.get('currencyPosition')) or "",
-							"priceUnit":_displayWithCurrency(local.get('lang_obj'),wishlist.product_id.lst_price, local.get('currencySymbol'), local.get('currencyPosition')),
+							"priceReduce":wishlist.product_id.price < wishlist.product_id.list_price and _displayWithCurrency(local.get('lang_obj'),wishlist.product_id.price, local.get('currencySymbol'), local.get('currencyPosition')) or "",
+							"priceUnit":_displayWithCurrency(local.get('lang_obj'),wishlist.product_id.list_price, local.get('currencySymbol'), local.get('currencyPosition')),
 							# "productId": wishlist.product_id.product_tmpl_id.id,
 							"productId": wishlist.product_id.id,
 							"templateId": wishlist.product_id.product_tmpl_id.id,
